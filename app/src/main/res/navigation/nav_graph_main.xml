@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/feed_fragment">
+
+    <fragment
+        android:id="@+id/feed_fragment"
+        android:name="com.example.android.master_detailnavigationjava.FeedFragment"
+        android:label="Feed"
+        tools:layout="@layout/fragment_feed"/>
+
+    <fragment
+        android:id="@+id/messages_fragment"
+        android:name="com.example.android.master_detailnavigationjava.MessagesFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_messages"/>
+
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="com.example.android.master_detailnavigationjava.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action android:id="@+id/action_profile_fragment_to_fragment_account"
+            app:destination="@id/fragment_account"/>
+        <action android:id="@+id/action_profile_fragment_to_fragment_notifications"
+            app:destination="@id/fragment_notifications"/>
+        <action android:id="@+id/action_profile_fragment_to_fragment_settings"
+            app:destination="@id/fragment_settings"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_account"
+        android:name="com.example.android.master_detailnavigationjava.AccountFragment"
+        android:label="@string/account"
+        tools:layout="@layout/fragment_account"/>
+
+    <fragment
+        android:id="@+id/fragment_notifications"
+        android:name="com.example.android.master_detailnavigationjava.NotificationsFragment"
+        android:label="@string/notifications"
+        tools:layout="@layout/fragment_notifications"/>
+
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.example.android.master_detailnavigationjava.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"/>
+</navigation>

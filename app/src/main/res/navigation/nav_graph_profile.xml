@@ -22,4 +22,5 @@
         android:name="com.example.android.master_detailnavigationjava.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings"/>
+
 </navigation>

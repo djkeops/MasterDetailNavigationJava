@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 
 /**
@@ -32,7 +33,15 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_messages, container, false);
+        View view;
+
+        boolean isTablet = Objects.requireNonNull(getContext()).getResources().getBoolean(R.bool.isTablet);
+
+        if (isTablet) {
+            view = inflater.inflate(R.layout.fragment_messages_land, container, false);
+        } else {
+            view = inflater.inflate(R.layout.fragment_messages, container, false);
+        }
 
         // Put initial data into the messages list.
         for (int i = 0; i < 20; i++) {
@@ -40,11 +49,9 @@ public class MessagesFragment extends Fragment {
         }
 
         // Get a handle to the RecyclerView.
-        mRecyclerView = rootView.findViewById(R.id.recyclerview);
+        mRecyclerView = view.findViewById(R.id.recyclerview);
         // Create an adapter and supply the data to be displayed.
         mAdapter = new MessagesListAdapter(getContext(), mMessagesList);
-
-
 
         // Connect the adapter with the RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
@@ -52,7 +59,7 @@ public class MessagesFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Inflate the layout for this fragment
-        return rootView;
+        return view;
     }
 
 }

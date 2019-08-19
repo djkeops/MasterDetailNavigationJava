@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller,
                                              @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 getSupportActionBar().setTitle(destination.getLabel());
-                if (destination.getId() == R.id.fragment_account || destination.getId() == R.id.fragment_settings || destination.getId() == R.id.fragment_notifications) {
+                if (destination.getId() == R.id.fragment_account || destination.getId() == R.id.fragment_settings || destination.getId() == R.id.fragment_notifications || destination.getId() == R.id.fragment_details) {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 } else {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(false);

@@ -15,7 +15,10 @@
         android:id="@+id/messages_fragment"
         android:name="com.example.android.master_detailnavigationjava.MessagesFragment"
         android:label="Messages"
-        tools:layout="@layout/fragment_messages"/>
+        tools:layout="@layout/fragment_messages">
+        <action android:id="@+id/action_messages_fragment_to_fragment_details"
+            app:destination="@id/fragment_details"/>
+    </fragment>
 
     <fragment
         android:id="@+id/profile_fragment"
@@ -47,4 +50,10 @@
         android:name="com.example.android.master_detailnavigationjava.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings"/>
+
+    <fragment
+        android:id="@+id/fragment_details"
+        android:name="com.example.android.master_detailnavigationjava.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details"/>
 </navigation>
